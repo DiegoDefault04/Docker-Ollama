@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+llama-index
+chromadb
+sentence-transformers
+llama-index-llms-ollama
+llama-index-embeddings-huggingface
