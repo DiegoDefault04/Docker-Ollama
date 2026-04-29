@@ -3,12 +3,13 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.llms.ollama import Ollama
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.node_parser import SentenceSplitter
+import os
 
 app = FastAPI()
 
 llm = Ollama(
     model="llama3",
-    base_url="http://localhost:11434"
+    base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 )
 
 embed_model = HuggingFaceEmbedding(

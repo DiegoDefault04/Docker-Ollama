@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  api:
+    build: ../api
+    container_name: ai-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../docs:/app/docs
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
